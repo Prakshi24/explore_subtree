@@ -34,4 +34,4 @@ jobs:
         stale-issue-label: 'stale'
         stale-pr-label: 'stale'
         days-before-stale: 0
-        days-before-close: 90
+        days-before-close: 0
