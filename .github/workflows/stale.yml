@@ -4,16 +4,34 @@ on:
   schedule:
   - cron: '*/2 * * * *'
 
+# jobs:
+#   stale:
+
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - uses: actions/stale@v1
+#       with:
+#         repo-token: ${{ secrets.GITHUB_TOKEN }}
+#         stale-issue-message: 'Stale issue message'
+#         stale-pr-message: 'Stale pull request message'
+#         stale-issue-label: 'no-issue-activity'
+#         stale-pr-label: 'no-pr-activity'
+
 jobs:
   stale:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/stale@v1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        stale-issue-message: 'Stale issue message'
-        stale-pr-message: 'Stale pull request message'
-        stale-issue-label: 'no-issue-activity'
-        stale-pr-label: 'no-pr-activity'
+        # Leave the issue message empty so that issues are not marked stale.
+        stale-issue-message: Marking issue stale
+        stale-pr-message: >
+          Marking this PR stale since there has been no activity for 14
+          days. It will be closed if there is no activity for another
+          90 days.
+        stale-issue-label: 'stale'
+        stale-pr-label: 'stale'
+        days-before-stale: 0
+        days-before-close: 90
