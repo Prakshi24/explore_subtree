@@ -1,7 +1,7 @@
 on:
   create:
-    tags:
-    - '*'
+#     tags:
+#     - '*'
 # on:
 #   push:
 #     # Sequence of patterns matched against refs/tags
